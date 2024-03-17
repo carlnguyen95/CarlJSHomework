@@ -31,8 +31,8 @@
 
 .day13__content
 {
-    border: 15px solid transparent;
-    border-image: url("../img/bg_frame.png") 40 round;
+    border: 20px solid transparent;
+    border-image: url("../img/bg_frame.png") 80 fill;
 }
 
 .day13__content .tab-content,
@@ -123,6 +123,20 @@
 .navbar-nav .nav-item
 {
     margin-right: 20px;
+}
+
+/* NAVBAR TABS */
+.nav-tabs .nav-link
+{
+    color: #9b7a8a;
+}
+
+.nav-tabs .nav-link.active
+{
+    background: -webkit-linear-gradient(left, #de6167, #9b7a8a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: none;
 }
 
 /* day 13 common */
