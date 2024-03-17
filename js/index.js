@@ -78,3 +78,28 @@ function calcSum2Digit() {
   //Output
   document.getElementById("day13_b5_result").value = result;
 }
+
+// BUOI13 B6
+function loadImage() {
+  var url = document.getElementById("day13_b6_url").value;
+
+  document.getElementById("day13_b6_img").src = url;
+}
+
+function updateImage() {
+  var brightness = document.getElementById("day13_b6_brightness").value;
+  var contrast = document.getElementById("day13_b6_contrast").value;
+  var hue = document.getElementById("day13_b6_hue").value;
+  var blur = document.getElementById("day13_b6_blur").value;
+  var saturation = document.getElementById("day13_b6_saturation").value;
+  var sepia = document.getElementById("day13_b6_sepia").value;
+
+  document.getElementById(
+    "day13_b6_img"
+  ).style.filter = `brightness(${brightness}%) 
+                  contrast(${contrast}%) 
+                  hue-rotate(${hue}deg) 
+                  blur(${blur}px) 
+                  saturate(${saturation}%) 
+                  sepia(${sepia}%)`;
+}

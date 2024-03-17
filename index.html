@@ -161,9 +161,22 @@
               >
                 Bài 5
               </button>
+              <button
+                class="nav-link"
+                id="day13-b6-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day13-b6"
+                type="button"
+                role="tab"
+                aria-controls="day13-b6"
+                aria-selected="false"
+              >
+                Photo Editor
+              </button>
             </div>
           </nav>
           <div class="tab-content mx-auto mt-5 mb-5" id="nav-tabContent">
+            <!-- BAI1 -->
             <div
               class="tab-pane fade show active"
               id="day13-b1"
@@ -217,6 +230,8 @@
                 </div>
               </div>
             </div>
+
+            <!-- BAI2 -->
             <div
               class="tab-pane fade"
               id="day13-b2"
@@ -301,6 +316,8 @@
                 </div>
               </div>
             </div>
+
+            <!-- BAI3 -->
             <div
               class="tab-pane fade"
               id="day13-b3"
@@ -352,6 +369,8 @@
                 </div>
               </div>
             </div>
+
+            <!-- BAI4 -->
             <div
               class="tab-pane fade"
               id="day13-b4"
@@ -420,6 +439,8 @@
                 </div>
               </div>
             </div>
+
+            <!-- BAI5 -->
             <div
               class="tab-pane fade"
               id="day13-b5"
@@ -461,16 +482,121 @@
                   ></textarea>
                 </div>
                 <div class="day13__debai col-5">
-                  <h3>Bài 3:</h3>
+                  <h3>Bài 5:</h3>
                   <p>
-                    Giá USD hiện tại đang là 23.500VND
+                    Tính tổng 2 ký số
                     <br />
-                    Viết chương trình qui đổi từ USD sang VND
+                    Nhập vào 1 số có 2 chữ số
                     <br />
-                    Cho người dùng nhập vào số tiền USD
-                    <br />
-                    Tính và xuất ra số tiền VND
+                    Tính tổng của 2 ký số vừa nhập
                   </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BAI6 -->
+            <div
+              class="tab-pane fade"
+              id="day13-b6"
+              role="tabpanel"
+              aria-labelledby="day13-b6-tab"
+            >
+              <div class="row">
+                <div
+                  class="day13__common day13__b6__content col-7 position-relative"
+                >
+                  <div class="day13__b6__input__field mb-3">
+                    <input
+                      type="text"
+                      name="day13_b6_url"
+                      id="day13_b6_url"
+                      placeholder="Enter Image URL"
+                      class="me-3 w-75"
+                    />
+                  </div>
+                  <button class="btn btn-success btn-lg" onclick="loadImage()">
+                    Load Image
+                  </button>
+                  <button class="btn btn-danger btn-lg" onclick="clearInput(6)">
+                    Hủy</button
+                  ><br />
+                  <label for="day13_b6_brightness" class="mt-3"
+                    >Brightness</label
+                  ><br />
+                  <input
+                    type="range"
+                    name="brightness"
+                    id="day13_b6_brightness"
+                    min="0"
+                    max="170"
+                    class="d-block w-75"
+                    onchange="updateImage()"
+                  />
+                  <label for="day13_b6_contrast" class="mt-2">Contrast</label
+                  ><br />
+                  <input
+                    type="range"
+                    name="contrast"
+                    id="day13_b6_contrast"
+                    min="0"
+                    max="170"
+                    class="d-block w-75"
+                    onchange="updateImage()"
+                  />
+                  <label for="day13_b6_hue" class="mt-2">Hue</label><br />
+                  <input
+                    type="range"
+                    name="hue"
+                    id="day13_b6_hue"
+                    min="0"
+                    max="360"
+                    value="0"
+                    class="d-block w-75"
+                    onchange="updateImage()"
+                  />
+                  <label for="day13_b6_blur" class="mt-2">Blur</label><br />
+                  <input
+                    type="range"
+                    name="blur"
+                    id="day13_b6_blur"
+                    min="0"
+                    max="10"
+                    value="0"
+                    class="d-block w-75"
+                    onchange="updateImage()"
+                  />
+                  <label for="day13_b6_saturation" class="mt-2"
+                    >Saturation</label
+                  ><br />
+                  <input
+                    type="range"
+                    name="saturation"
+                    id="day13_b6_saturation"
+                    min="0"
+                    max="300"
+                    value="100"
+                    class="d-block w-75"
+                    onchange="updateImage()"
+                  />
+                  <label for="day13_b6_sepia" class="mt-2">Sepia</label><br />
+                  <input
+                    type="range"
+                    name="sepia"
+                    id="day13_b6_sepia"
+                    min="0"
+                    max="100"
+                    value="0"
+                    class="d-block w-75"
+                    onchange="updateImage()"
+                  />
+                </div>
+                <div class="day13__debai col-5">
+                  <img
+                    id="day13_b6_img"
+                    src="./img/bg_frame_b1.png"
+                    class="w-100"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>

@@ -26,12 +26,12 @@
 
 .day13
 {
-    height: 550px;
+    height: 650px;
 }
 
 .day13__content
 {
-    border: 20px solid transparent;
+    border: 50px solid transparent;
     border-image: url("../img/bg_frame.png") 80 fill;
 }
 
