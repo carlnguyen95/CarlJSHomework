@@ -11,32 +11,46 @@
     max-width: 1200px;
 }
 
-.day13__debai
+.day-title
+{
+    position: absolute;
+    top: 0;
+    right: 10%;
+    background: linear-gradient(to right, #de6167, #9b7a8a);
+    padding: 15px;
+    padding-left: 25px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+.requirement
 {
     border: 2px solid #9b7a8a;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.day13__debai h3
+.requirement h3
 {
     color: #9b7a8a;
     font-weight: 700;
 }
 
-.day13
+.frame
 {
     height: 700px;
 }
 
-.day13__content
+.frame-border
 {
     border: 50px solid transparent;
     border-image: url("../img/bg_frame.png") 80 fill;
 }
 
-.day13__content .tab-content,
-.day13__content .nav-tabs
+.tab-content,
+.nav-tabs
 {
     width: 80%;
 }
@@ -169,4 +183,34 @@
 .day13__b4__content input
 {
     width: 35.5%;
+}
+
+
+/* BUOI15 */
+/* BUOI15_b1 */
+#day15__b1__popup
+{
+    border: 1px solid black;
+    background-color: #de6167;
+    height: 16vh;
+    width: 20vw;
+    position: fixed;
+    top: 42vh;
+    left: 40vw;
+    z-index: 999;
+}
+
+#day15__b1__popup *
+{
+    text-align: center;
+    color: white;
+}
+
+#day15__b1__popup button
+{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 4px 4px;
+    padding-bottom: 0;
 }

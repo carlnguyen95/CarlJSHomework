@@ -32,6 +32,12 @@
       rel="stylesheet"
     />
 
+    <!-- GG ICON -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
     <!-- PAGE CSS -->
     <link rel="stylesheet" href="./css/index.css" />
   </head>
@@ -96,9 +102,9 @@
       </nav>
     </header>
 
-    <section class="day13 mt-5">
+    <section class="day13 frame mt-5">
       <div class="container h-100">
-        <div class="day13__content position-relative pt-4 h-100">
+        <div class="day13__content frame-border position-relative pt-4 h-100">
           <nav>
             <div class="nav nav-tabs mx-auto" id="nav-tab" role="tablist">
               <button
@@ -175,6 +181,7 @@
               </button>
             </div>
           </nav>
+          <div class="day-title">BUỔI 13</div>
           <div class="tab-content mx-auto mt-5 mb-5" id="nav-tabContent">
             <!-- BAI1 -->
             <div
@@ -216,7 +223,7 @@
                     readonly="true"
                   ></textarea>
                 </div>
-                <div class="day13__debai col-5">
+                <div class="requirement col-5">
                   <h3>Bài 1:</h3>
                   <p>
                     Viết chương trình tính lương nhân viên
@@ -304,7 +311,7 @@
                     readonly="true"
                   ></textarea>
                 </div>
-                <div class="day13__debai col-5">
+                <div class="requirement col-5">
                   <h3>Bài 2:</h3>
                   <p>
                     Tính giá trị trung bình:
@@ -355,7 +362,7 @@
                     readonly="true"
                   ></textarea>
                 </div>
-                <div class="day13__debai col-5">
+                <div class="requirement col-5">
                   <h3>Bài 3:</h3>
                   <p>
                     Giá USD hiện tại đang là 23.500VND
@@ -427,7 +434,7 @@
                     readonly="true"
                   ></textarea>
                 </div>
-                <div class="day13__debai col-5">
+                <div class="requirement col-5">
                   <h3>Bài 4:</h3>
                   <p>
                     Tính diện tích, chu vi HCN
@@ -481,7 +488,7 @@
                     readonly="true"
                   ></textarea>
                 </div>
-                <div class="day13__debai col-5">
+                <div class="requirement col-5">
                   <h3>Bài 5:</h3>
                   <p>
                     Tính tổng 2 ký số
@@ -591,7 +598,7 @@
                     onchange="updateImage()"
                   />
                 </div>
-                <div class="day13__debai col-5">
+                <div class="requirement col-5">
                   <img
                     id="day13_b6_img"
                     src="./img/bg_frame_b1.png"
@@ -606,6 +613,318 @@
       </div>
     </section>
 
+    <section class="day15 frame mt-5">
+      <div
+        id="day15__b1__popup"
+        class="d-flex flex-column justify-content-center d-none"
+      >
+        <h1>Chúc mừng</h1>
+        <p id="day15_b1_result"></p>
+        <button class="btn btn-light" onclick="closeB1Popup()">
+          <span class="material-symbols-outlined w-100 text-dark"> close </span>
+        </button>
+      </div>
+      <div class="container h-100">
+        <div class="day15__content frame-border position-relative pt-4 h-100">
+          <nav>
+            <div class="nav nav-tabs mx-auto" id="nav-tab" role="tablist">
+              <button
+                class="nav-link active"
+                id="day15-b1-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day15-b1"
+                type="button"
+                role="tab"
+                aria-controls="day15-b1"
+                aria-selected="true"
+              >
+                Bài 1
+              </button>
+              <button
+                class="nav-link"
+                id="day15-b2-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day15-b2"
+                type="button"
+                role="tab"
+                aria-controls="day15-b2"
+                aria-selected="false"
+              >
+                Bài 2
+              </button>
+              <button
+                class="nav-link"
+                id="day15-b3-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day15-b3"
+                type="button"
+                role="tab"
+                aria-controls="day15-b3"
+                aria-selected="false"
+              >
+                Bài 3
+              </button>
+              <button
+                class="nav-link"
+                id="day15-b4-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day15-b4"
+                type="button"
+                role="tab"
+                aria-controls="day15-b4"
+                aria-selected="false"
+              >
+                Bài 4
+              </button>
+            </div>
+          </nav>
+          <div class="day-title">BUỔI 15</div>
+          <div class="tab-content mx-auto mt-5 mb-5" id="nav-tabContent">
+            <!-- BAI1 -->
+            <div
+              class="tab-pane fade show active"
+              id="day15-b1"
+              role="tabpanel"
+              aria-labelledby="day15-b1-tab"
+            >
+              <div class="row">
+                <div class="col-7">
+                  <input
+                    type="number"
+                    name="day15_b1_score"
+                    id="day15_b1_score"
+                    placeholder="Điểm chuẩn"
+                    class="w-75 d-block mb-3"
+                    required
+                  />
+                  <label for="priorityZone" class="me-1">Vùng</label>
+                  <select name="priorityZone" id="priorityZone" required>
+                    <option value="-1">--None--</option>
+                    <option value="0">A</option>
+                    <option value="1">B</option>
+                    <option value="2">C</option>
+                  </select>
+                  <label for="priorityType" class="me-1 ms-5">Đối tượng</label>
+                  <select name="priorityType" id="priorityType" required>
+                    <option value="-1">--None--</option>
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                  </select>
+                  <hr class="w-75" border="1" />
+                  <input
+                    type="number"
+                    name="day15_b1_s1"
+                    id="day15_b1_s1"
+                    placeholder="Điểm thi môn 1"
+                    class="w-75 d-block mb-3"
+                  />
+                  <input
+                    type="number"
+                    name="day15_b1_s2"
+                    id="day15_b1_s2"
+                    placeholder="Điểm thi môn 2"
+                    class="w-75 d-block mb-3"
+                  />
+                  <input
+                    type="number"
+                    name="day15_b1_s3"
+                    id="day15_b1_s3"
+                    placeholder="Điểm thi môn 3"
+                    class="w-75 d-block mb-3"
+                  />
+                  <button class="btn btn-success btn-lg" onclick="checkScore()">
+                    Tra cứu
+                  </button>
+                  <button class="btn btn-danger btn-lg" onclick="clearInput(1)">
+                    Hủy
+                  </button>
+                </div>
+                <div class="requirement col-5">
+                  <h3>Bài 1:</h3>
+                  <p>
+                    Quản lý tuyển sinh
+                    <br />
+                    Thí sinh sẽ trúng tuyển nếu có điểm tổng kết lớn hơn hoặc
+                    bằng điểm chuẩn và không môn nào bị điểm 0
+                    <br />
+                    Điểm tổng kết gồm tổng 3 môn cộng điểm ưu tiên vùng và điểm
+                    ưu tiên đối tượng
+                  </p>
+                  <img src="./img/day15_b1.png" class="w-100" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <!-- BAI2 -->
+            <div
+              class="tab-pane fade"
+              id="day15-b2"
+              role="tabpanel"
+              aria-labelledby="day15-b2-tab"
+            >
+              <div class="row">
+                <div class="col-7">
+                  <input
+                    type="text"
+                    name="day15_b2_name"
+                    id="day15_b2_name_id"
+                    placeholder="Tên"
+                    class="w-75 d-block mb-3"
+                  />
+                  <input
+                    type="number"
+                    name="day15_b2_kw"
+                    id="day15_b2_kw_id"
+                    placeholder="Số KW"
+                    class="w-75 d-block mb-3"
+                  />
+                  <button class="btn btn-success btn-lg" onclick="calcKW()">
+                    Tính
+                  </button>
+                  <button class="btn btn-danger btn-lg" onclick="clearInput(1)">
+                    Hủy
+                  </button>
+                  <textarea
+                    name="day15_b2_bill"
+                    id="day15_b2_bill_id"
+                    cols="30"
+                    rows="1"
+                    class="w-75 mt-4"
+                  ></textarea>
+                </div>
+                <div class="requirement col-5"></div>
+              </div>
+            </div>
+
+            <!-- BAI3 -->
+            <div
+              class="tab-pane fade"
+              id="day15-b3"
+              role="tabpanel"
+              aria-labelledby="day15-b3-tab"
+            >
+              <div class="row">
+                <div class="col-7">
+                  <input
+                    type="text"
+                    name="day15_b3_name"
+                    id="day15_b1_name_id"
+                    placeholder="Họ Tên"
+                    class="w-75 d-block mb-3"
+                  />
+                  <input
+                    type="number"
+                    name="day15_b3_income"
+                    id="day15_b3_income_id"
+                    placeholder="Tổng thu nhập năm"
+                    class="w-75 d-block mb-3"
+                  />
+                  <input
+                    type="number"
+                    name="day15_b3_dependence"
+                    id="day15_b3_dependence_id"
+                    placeholder="Số người phụ thuộc"
+                    class="w-75 d-block mb-3"
+                  />
+                  <button class="btn btn-success btn-lg" onclick="calcTax()">
+                    Tính thuế
+                  </button>
+                  <button class="btn btn-danger btn-lg" onclick="clearInput(2)">
+                    Hủy
+                  </button>
+                  <textarea
+                    name="day15_b3_tax"
+                    id="day15_b3_tax_id"
+                    cols="30"
+                    rows="1"
+                    class="d-block mt-4 w-75"
+                    readonly="true"
+                  ></textarea>
+                </div>
+                <div class="requirement col-5"></div>
+              </div>
+            </div>
+
+            <!-- BAI4 -->
+            <div
+              class="tab-pane fade"
+              id="day15-b4"
+              role="tabpanel"
+              aria-labelledby="day15-b4-tab"
+            >
+              <div class="row">
+                <div class="col-7">
+                  <input
+                    type="text"
+                    name="day15_b2_code"
+                    id="day15_b2_code_id"
+                    placeholder="Mã KH"
+                    class="w-75 d-block mb-3"
+                  />
+                  <select
+                    name="day15_b4_type"
+                    id="day15_b4_type_id"
+                    class="mb-3"
+                    onchange="toggleConnectorsInput()"
+                  >
+                    <option value="personal">Cá nhân</option>
+                    <option value="brand">Doanh nghiệp</option>
+                  </select>
+                  <input
+                    type="number"
+                    name="day15_b4_channel"
+                    id="day15_b4_channel_id"
+                    placeholder="Số kênh"
+                    class="w-75 d-block mb-3"
+                  />
+                  <input
+                    type="number"
+                    name="day15_b4_connectors"
+                    id="day15_b4_connectors_id"
+                    placeholder="Số kết nối"
+                    class="w-75 d-block mb-3 d-none"
+                  />
+                  <button
+                    class="btn btn-success btn-lg"
+                    onclick="calcCableBill()"
+                  >
+                    Tính
+                  </button>
+                  <button class="btn btn-danger btn-lg" onclick="clearInput(1)">
+                    Hủy
+                  </button>
+                  <textarea
+                    name="day15_b4_bill"
+                    id="day15_b4_bill_id"
+                    cols="30"
+                    rows="1"
+                    class="w-75 mt-4"
+                  ></textarea>
+                </div>
+                <div class="requirement col-5"></div>
+              </div>
+            </div>
+
+            <!-- BAI5 -->
+            <div
+              class="tab-pane fade"
+              id="day15-b5"
+              role="tabpanel"
+              aria-labelledby="day15-b5-tab"
+            ></div>
+
+            <!-- BAI6 -->
+            <div
+              class="tab-pane fade"
+              id="day15-b6"
+              role="tabpanel"
+              aria-labelledby="day15-b6-tab"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
