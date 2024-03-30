@@ -39,7 +39,9 @@
     />
 
     <!-- PAGE CSS -->
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/components/components.css" />
+    <link rel="stylesheet" href="./css/components/dark_light_switch.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
@@ -614,15 +616,14 @@
     </section>
 
     <section class="day15 frame mt-5">
-      <div
-        id="day15__b1__popup"
-        class="d-flex flex-column justify-content-center d-none"
-      >
-        <h1>Chúc mừng</h1>
-        <p id="day15_b1_result"></p>
-        <button class="btn btn-light" onclick="closeB1Popup()">
-          <span class="material-symbols-outlined w-100 text-dark"> close </span>
-        </button>
+      <div id="day15PopupId" class="popup-bg d-none">
+        <div
+          class="day15__popup--container d-flex flex-column justify-content-center"
+        >
+          <h1>Chúc mừng</h1>
+          <p id="day15_b1_result"></p>
+          <span class="close__popup" onclick="closeDay15Popup()">x</span>
+        </div>
       </div>
       <div class="container h-100">
         <div class="day15__content frame-border position-relative pt-4 h-100">
@@ -675,6 +676,18 @@
                 aria-selected="false"
               >
                 Bài 4
+              </button>
+              <button
+                class="nav-link"
+                id="day15-extra-1-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day15-extra-1"
+                type="button"
+                role="tab"
+                aria-controls="day15-extra-1"
+                aria-selected="false"
+              >
+                Extra 1
               </button>
             </div>
           </nav>
@@ -905,26 +918,148 @@
                 <div class="requirement col-5"></div>
               </div>
             </div>
-
-            <!-- BAI5 -->
-            <div
-              class="tab-pane fade"
-              id="day15-b5"
-              role="tabpanel"
-              aria-labelledby="day15-b5-tab"
-            ></div>
-
-            <!-- BAI6 -->
-            <div
-              class="tab-pane fade"
-              id="day15-b6"
-              role="tabpanel"
-              aria-labelledby="day15-b6-tab"
-            ></div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="day17 frame mt-5">
+      <div id="day17PopupId" class="popup-bg d-none">
+        <div class="day17__popup--container bg-success">
+          <div id="day17PopupTitleId" class="badge-ribbon">B1</div>
+          <h1>Final Result</h1>
+          <div class="day17__popup--result"></div>
+          <span class="close__popup" onclick="closeDay17Popup()">x</span>
+        </div>
+      </div>
+      <div class="container h-100">
+        <div class="day17__content frame-border position-relative pt-4 h-100">
+          <nav>
+            <div class="nav nav-tabs mx-auto" id="nav-tab" role="tablist">
+              <button
+                class="nav-link active"
+                id="day17-b1-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day17-b1"
+                type="button"
+                role="tab"
+                aria-controls="day17-b1"
+                aria-selected="true"
+              >
+                Bài 1
+              </button>
+              <button
+                class="nav-link"
+                id="day17-b2-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day17-b2"
+                type="button"
+                role="tab"
+                aria-controls="day17-b2"
+                aria-selected="false"
+              >
+                Bài 2
+              </button>
+            </div>
+          </nav>
+          <div class="day-title">BUỔI 17</div>
+          <div class="tab-content mx-auto mt-5 mb-5" id="nav-tabContent">
+            <!-- BAI1 -->
+            <div
+              class="tab-pane fade show active"
+              id="day17-b1"
+              role="tabpanel"
+              aria-labelledby="day17-b1-tab"
+            >
+              <div class="row">
+                <div class="col-7">
+                  <input
+                    type="number"
+                    name="array"
+                    id="arrayInputId"
+                    placeholder="Nhập vào từng số nguyên của chuỗi"
+                  />
+                  <button class="btn btn-light" onclick="pushArray()">
+                    Số kế
+                  </button>
+                  <button class="btn btn-danger" onclick="clearArray()">
+                    Hủy
+                  </button>
+                  <div id="array__output"></div>
+                  <button class="btn btn-success" id="day17B1Id">B1</button>
+                  <button class="btn btn-success" id="day17B2Id">B2</button>
+                  <button class="btn btn-success" id="day17B3Id">B3</button>
+                  <button class="btn btn-success" id="day17B4Id">B4</button>
+                  <button class="btn btn-success" id="day17B5Id">B5</button>
+                  <br />
+                  <br />
+                  <button class="btn btn-success" id="day17B6Id">B6</button>
+                  <button class="btn btn-success" id="day17B7Id">B7</button>
+                  <button class="btn btn-success" id="day17B8Id">B8</button>
+                  <button class="btn btn-success" id="day17B10Id">B10</button>
+
+                  <div id="outputArea" class="mt-4"></div>
+                </div>
+                <div class="requirement col-5">
+                  <h3>Bài 1:</h3>
+                  <p>
+                    Quản lý tuyển sinh
+                    <br />
+                    Thí sinh sẽ trúng tuyển nếu có điểm tổng kết lớn hơn hoặc
+                    bằng điểm chuẩn và không môn nào bị điểm 0
+                    <br />
+                    Điểm tổng kết gồm tổng 3 môn cộng điểm ưu tiên vùng và điểm
+                    ưu tiên đối tượng
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BAI2 -->
+            <div
+              class="tab-pane fade"
+              id="day17-b2"
+              role="tabpanel"
+              aria-labelledby="day17-b2-tab"
+            >
+              <div class="row">
+                <div class="col-7">
+                  <input
+                    type="text"
+                    name="day17_b2_name"
+                    id="day17_b2_name_id"
+                    placeholder="Tên"
+                    class="w-75 d-block mb-3"
+                  />
+                  <input
+                    type="number"
+                    name="day17_b2_kw"
+                    id="day17_b2_kw_id"
+                    placeholder="Số KW"
+                    class="w-75 d-block mb-3"
+                  />
+                  <button class="btn btn-success btn-lg" onclick="calcKW()">
+                    Tính
+                  </button>
+                  <button class="btn btn-danger btn-lg" onclick="clearInput(1)">
+                    Hủy
+                  </button>
+                  <textarea
+                    name="day17_b2_bill"
+                    id="day17_b2_bill_id"
+                    cols="30"
+                    rows="1"
+                    class="w-75 mt-4"
+                  ></textarea>
+                </div>
+                <div class="requirement col-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

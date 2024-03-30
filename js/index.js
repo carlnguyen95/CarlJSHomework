@@ -107,7 +107,10 @@ function updateImage() {
 // BUOI15
 // BUOI15_b1
 function checkScore() {
-  var day15B1Popup = document.getElementById("day15__b1__popup");
+  var day15B1Popup = document.getElementById("day15PopupId");
+  var day15PopupContainer = day15B1Popup.querySelector(
+    ".day15__popup--container"
+  );
   var standardScore = parseFloat(
     document.getElementById("day15_b1_score").value
   );
@@ -134,31 +137,41 @@ function checkScore() {
   var score = s1Score + s2Score + s3Score + zonePlus + typePlus;
   console.log(score);
 
-  if ((score >= standardScore) && s1Score !== 0 && s2Score !== 0 && s3Score !== 0) {
+  if (
+    score >= standardScore &&
+    s1Score !== 0 &&
+    s2Score !== 0 &&
+    s3Score !== 0
+  ) {
     document.getElementById("day15_b1_result").innerText = "Bạn đậu rồi!!!";
-    document.querySelector("#day15__b1__popup h1").innerText = "Chúc mừng";
-    day15B1Popup.classList.add("bg-success");
+    document.querySelector("#day15PopupId h1").innerText = "Chúc mừng";
+    day15PopupContainer.classList.add("bg-success");
   } else {
     document.getElementById("day15_b1_result").innerText =
       "Bạn không trúng tuyển lần này!!!";
-    document.querySelector("#day15__b1__popup h1").innerText = "Chia buồn";
-    day15B1Popup.classList.add("bg-danger");
+    document.querySelector("#day15PopupId h1").innerText = "Chia buồn";
+    day15PopupContainer.classList.add("bg-danger");
   }
   day15B1Popup.classList.remove("d-none");
 }
 
-function closeB1Popup() {
-  var day15B1Popup = document.getElementById("day15__b1__popup");
+function closeDay15Popup() {
+  var day15B1Popup = document.getElementById("day15PopupId");
+  var day15PopupContainer = day15B1Popup.querySelector(
+    ".day15__popup--container"
+  );
 
-  day15B1Popup.classList.remove("bg-success");
-  day15B1Popup.classList.remove("bg-danger");
+  day15PopupContainer.classList.remove("bg-success");
+  day15PopupContainer.classList.remove("bg-danger");
   day15B1Popup.classList.add("d-none");
 }
 
 // BUOI15_b2
 function calcTax() {
   var income = parseInt(document.getElementById("day15_b3_income_id").value);
-  var dependence = parseInt(document.getElementById("day15_b3_dependence_id").value);
+  var dependence = parseInt(
+    document.getElementById("day15_b3_dependence_id").value
+  );
 
   var taxedIncome = income - 4000000 - dependence * 1600000;
 
@@ -168,27 +181,21 @@ function calcTax() {
 
   var tax = 0;
   var unit = 1000000;
-  var taxRate = 5/100;
-  if (taxedIncome <= 60*unit) {
-    taxRate = 5/100;
-  }
-  else if (taxedIncome > 60*unit && taxedIncome <= 120*unit) {
-    taxRate = 10/100;
-  }
-  else if (taxedIncome > 120*unit && taxedIncome <= 210*unit) {
-    taxRate = 15/100;
-  }
-  else if (taxedIncome > 210*unit && taxedIncome <= 384*unit) {
-    taxRate = 20/100;
-  }
-  else if (taxedIncome > 384*unit && taxedIncome <= 624*unit) {
-    taxRate = 25/100;
-  }
-  else if (taxedIncome > 624*unit && taxedIncome <= 960*unit) {
-    taxRate = 30/100;
-  }
-  else {
-    taxRate = 35/100;
+  var taxRate = 5 / 100;
+  if (taxedIncome <= 60 * unit) {
+    taxRate = 5 / 100;
+  } else if (taxedIncome > 60 * unit && taxedIncome <= 120 * unit) {
+    taxRate = 10 / 100;
+  } else if (taxedIncome > 120 * unit && taxedIncome <= 210 * unit) {
+    taxRate = 15 / 100;
+  } else if (taxedIncome > 210 * unit && taxedIncome <= 384 * unit) {
+    taxRate = 20 / 100;
+  } else if (taxedIncome > 384 * unit && taxedIncome <= 624 * unit) {
+    taxRate = 25 / 100;
+  } else if (taxedIncome > 624 * unit && taxedIncome <= 960 * unit) {
+    taxRate = 30 / 100;
+  } else {
+    taxRate = 35 / 100;
   }
 
   var tax = taxRate * taxedIncome;
@@ -203,8 +210,7 @@ function calcKW() {
   if (kw >= 50) {
     bill += 50 * 500;
     kw -= 50;
-  }
-  else {
+  } else {
     bill += 500 * kw;
     document.getElementById("day15_b2_bill_id").value = bill;
     return 1;
@@ -213,8 +219,7 @@ function calcKW() {
   if (kw >= 50) {
     bill += 50 * 650;
     kw -= 50;
-  }
-  else {
+  } else {
     bill += 650 * kw;
     document.getElementById("day15_b2_bill_id").value = bill;
     return 1;
@@ -223,8 +228,7 @@ function calcKW() {
   if (kw >= 100) {
     bill += 100 * 850;
     kw -= 100;
-  }
-  else {
+  } else {
     bill += 850 * kw;
     document.getElementById("day15_b2_bill_id").value = bill;
     return 1;
@@ -233,8 +237,7 @@ function calcKW() {
   if (kw >= 150) {
     bill += 150 * 1100;
     kw -= 150;
-  }
-  else {
+  } else {
     bill += 1100 * kw;
     document.getElementById("day15_b2_bill_id").value = bill;
     return 1;
@@ -254,11 +257,11 @@ function calcCableBill() {
   var serviceFee = 20.5;
   var channelFee = 7.5;
   var bill = 0;
-  
+
   if (type === "brand") {
     var connectors = document.getElementById("day15_b4_connectors_id").value;
     billFee = 15;
-    serviceFee = (connectors <= 10) ? 75 : (75 + 5 * (connectors - 10));
+    serviceFee = connectors <= 10 ? 75 : 75 + 5 * (connectors - 10);
   }
 
   bill += billFee + serviceFee + channelFee * channelNumbers;
@@ -269,9 +272,84 @@ function toggleConnectorsInput() {
   var type = document.getElementById("day15_b4_type_id").value;
 
   if (type === "brand") {
-    document.getElementById("day15_b4_connectors_id").classList.remove("d-none");
-  }
-  else {
+    document
+      .getElementById("day15_b4_connectors_id")
+      .classList.remove("d-none");
+  } else {
     document.getElementById("day15_b4_connectors_id").classList.add("d-none");
   }
 }
+
+/*BUOI17*/
+let arr = [];
+function pushArray() {
+  let number = parseInt(document.querySelector("#arrayInputId").value);
+  if (isNaN(number)) return;
+  arr.push(number);
+  document.querySelector("#arrayInputId").value = "";
+  document.querySelector("#outputArea").innerText = `[${arr}]`;
+}
+
+function clearArray() {
+  arr = [];
+  document.querySelector("#arrayInputId").value = "";
+  document.querySelector("#outputArea").innerText = `[${arr}]`;
+}
+
+function closeDay17Popup() {
+  document.querySelector("#day17PopupId").classList.add("d-none");
+}
+
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Escape") {
+    document.querySelector("#day17PopupId").classList.add("d-none");
+  }
+});
+
+//BAI1
+document.querySelector("#day17B1Id").addEventListener("click", () => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i] >= 0 ? arr[i] : 0;
+  }
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p class="counter">SUM = ${sum}</p>`;
+});
+
+//BAI2
+document.querySelector("#day17B2Id").addEventListener("click", () => {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    count += arr[i] >= 0 ? 1 : 0;
+  }
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p class="counter">COUNT = ${count}</p>`;
+});
+
+//BAI3
+document.querySelector("#day17B3Id").addEventListener("click", () => {
+  let min = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    min = arr[i] < min ? arr[i] : min;
+  }
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p class="counter">MIN = ${min}</p>`;
+});
