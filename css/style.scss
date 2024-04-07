@@ -179,7 +179,7 @@ header {
     @include main-box-shadow;
   }
 
-  input {
+  input:not([type='range']) {
     background-color: $frame-input-background;
     border: none;
     font-size: 20px;
@@ -248,6 +248,16 @@ header {
       text-align: center;
       width: 40%;
       position: relative;
+    }
+
+  }
+
+  #day17B6IndexInputId {
+    margin: 20px 0;
+
+    input {
+      display: block;
+      margin: 10px 0;
     }
   }
 }
