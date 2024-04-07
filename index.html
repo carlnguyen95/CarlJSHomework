@@ -958,7 +958,7 @@
                 aria-controls="day17-b2"
                 aria-selected="false"
               >
-                Bài 2
+                Audio Player
               </button>
             </div>
           </nav>
@@ -985,32 +985,55 @@
                   <button class="btn btn-danger" onclick="clearArray()">
                     Hủy
                   </button>
-                  <div id="array__output"></div>
-                  <button class="btn btn-success" id="day17B1Id">B1</button>
-                  <button class="btn btn-success" id="day17B2Id">B2</button>
-                  <button class="btn btn-success" id="day17B3Id">B3</button>
-                  <button class="btn btn-success" id="day17B4Id">B4</button>
-                  <button class="btn btn-success" id="day17B5Id">B5</button>
-                  <br />
-                  <br />
-                  <button class="btn btn-success" id="day17B6Id">B6</button>
-                  <button class="btn btn-success" id="day17B7Id">B7</button>
-                  <button class="btn btn-success" id="day17B8Id">B8</button>
-                  <button class="btn btn-success" id="day17B10Id">B10</button>
-
+                  <div id="day17B6IndexInputId" class="d-none">
+                    <input
+                      type="number"
+                      id="day17B6Index1Id"
+                      placeholder="Chỉ số thứ nhất"
+                    />
+                    <input
+                      type="number"
+                      id="day17B6Index2Id"
+                      placeholder="Chỉ số thứ hai"
+                    />
+                    <button class="btn btn-dark">Hoán đổi</button>
+                  </div>
+                  <div id="day17ButtonsId" class="mt-4">
+                    <button class="btn btn-success" id="day17B1Id">B1</button>
+                    <button class="btn btn-success" id="day17B2Id">B2</button>
+                    <button class="btn btn-success" id="day17B3Id">B3</button>
+                    <button class="btn btn-success" id="day17B4Id">B4</button>
+                    <button class="btn btn-success" id="day17B5Id">B5</button>
+                    <br />
+                    <br />
+                    <button class="btn btn-success" id="day17B6Id">B6</button>
+                    <button class="btn btn-success" id="day17B7Id">B7</button>
+                    <button class="btn btn-success" id="day17B8Id">B8</button>
+                    <button class="btn btn-success" id="day17B9Id">B9</button>
+                    <button class="btn btn-success" id="day17B10Id">B10</button>
+                  </div>
                   <div id="outputArea" class="mt-4"></div>
                 </div>
                 <div class="requirement col-5">
-                  <h3>Bài 1:</h3>
-                  <p>
-                    Quản lý tuyển sinh
-                    <br />
-                    Thí sinh sẽ trúng tuyển nếu có điểm tổng kết lớn hơn hoặc
-                    bằng điểm chuẩn và không môn nào bị điểm 0
-                    <br />
-                    Điểm tổng kết gồm tổng 3 môn cộng điểm ưu tiên vùng và điểm
-                    ưu tiên đối tượng
-                  </p>
+                  <h3>Thực hành mảng</h3>
+                  <p>User nhập vào các số nguyên và lưu trong mảng:</p>
+                  <ol>
+                    <li>Tổng các số dương trong mảng</li>
+                    <li>Đếm các số dương trong mảng</li>
+                    <li>Tìm số nhỏ nhất của mảng</li>
+                    <li>Tìm số dương nhỏ nhất của mảng</li>
+                    <li>Tìm số chẵn cuối cùng. Nếu không có trả về -1</li>
+                    <li>Đổi chỗ 2 vị trí trong mảng</li>
+                    <li>Sắp xếp mảng tăng dần</li>
+                    <li>
+                      Tìm số nguyên tố đầu tiên trong mảng. Nếu không có trả về
+                      -1
+                    </li>
+                    <li>
+                      Nhập thêm 1 mảng số thực, tìm xem có bao nhiêu số nguyên
+                    </li>
+                    <li>So sánh số lượng số dương và số âm</li>
+                  </ol>
                 </div>
               </div>
             </div>
@@ -1022,37 +1045,30 @@
               role="tabpanel"
               aria-labelledby="day17-b2-tab"
             >
-              <div class="row">
-                <div class="col-7">
-                  <input
-                    type="text"
-                    name="day17_b2_name"
-                    id="day17_b2_name_id"
-                    placeholder="Tên"
-                    class="w-75 d-block mb-3"
-                  />
-                  <input
-                    type="number"
-                    name="day17_b2_kw"
-                    id="day17_b2_kw_id"
-                    placeholder="Số KW"
-                    class="w-75 d-block mb-3"
-                  />
-                  <button class="btn btn-success btn-lg" onclick="calcKW()">
-                    Tính
-                  </button>
-                  <button class="btn btn-danger btn-lg" onclick="clearInput(1)">
-                    Hủy
-                  </button>
-                  <textarea
-                    name="day17_b2_bill"
-                    id="day17_b2_bill_id"
-                    cols="30"
-                    rows="1"
-                    class="w-75 mt-4"
-                  ></textarea>
+              <div class="audio-player">
+                <div class="title-area">
+                  <h3 class="title-area__song"></h3>
+                  <p class="title-area__singer"></p>
                 </div>
-                <div class="requirement col-5"></div>
+                <div class="control-area">
+                  <input
+                    type="range"
+                    name="song-duration"
+                    id="songDurationId"
+                    min="0"
+                    max="100"
+                  />
+                  <input
+                    type="range"
+                    name="volume"
+                    id="volumeId"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    orient="vertical"
+                    style="-webkit-appearance: slider-vertical"
+                  />
+                </div>
               </div>
             </div>
           </div>

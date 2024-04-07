@@ -283,7 +283,7 @@ function toggleConnectorsInput() {
 /*BUOI17*/
 let arr = [];
 function pushArray() {
-  let number = parseInt(document.querySelector("#arrayInputId").value);
+  let number = document.querySelector("#arrayInputId").value;
   if (isNaN(number)) return;
   arr.push(number);
   document.querySelector("#arrayInputId").value = "";
@@ -351,5 +351,168 @@ document.querySelector("#day17B3Id").addEventListener("click", () => {
   ).innerHTML += `<p>[${arr}]</p>`;
   document.querySelector(
     "#day17PopupId .day17__popup--result"
-  ).innerHTML += `<p class="counter">MIN = ${min}</p>`;
+  ).innerHTML += `<p class="counter">MIN NUMBER = ${min}</p>`;
+});
+
+// BAI4
+document.querySelector("#day17B4Id").addEventListener("click", () => {
+  let min = -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      if (min == -1) min = arr[i];
+      else if (arr[i] < min) min = arr[i];
+    }
+  }
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p class="counter">MIN POSITIVE NUMBER = ${min}</p>`;
+});
+
+// BAI5
+document.querySelector("#day17B5Id").addEventListener("click", () => {
+  let value = -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      value = arr[i];
+    }
+  }
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p class="counter">LAST EVEN NUMBER = ${value}</p>`;
+});
+
+// BAI6
+document.querySelector("#day17B6Id").addEventListener("click", () => {
+  document.querySelector("#day17B6IndexInputId").classList.remove("d-none");
+  document
+    .querySelector("#day17B6IndexInputId button")
+    .addEventListener("click", () => {
+      const index1 = document.querySelector("#day17B6Index1Id").value * 1;
+      const index2 = document.querySelector("#day17B6Index2Id").value * 1;
+
+      const tmp = arr[index1];
+      arr[index1] = arr[index2];
+      arr[index2] = tmp;
+      document.querySelector("#day17PopupId").classList.remove("d-none");
+      document.querySelector("#day17PopupId .day17__popup--result").innerHTML =
+        "";
+      document.querySelector(
+        "#day17PopupId .day17__popup--result"
+      ).innerHTML += `<p>[${arr}]</p>`;
+    });
+});
+
+document.querySelector("#day17ButtonsId").addEventListener("click", (e) => {
+  if (!e.target.matches("#day17B6Id")) {
+    document.querySelector("#day17B6IndexInputId").classList.add("d-none");
+  }
+  if (!e.target.matches("#day17B9Id")) {
+    const b9SubmitBtn = document.querySelector("#day17b9SubmitId");
+    b9SubmitBtn.remove();
+  }
+});
+
+// BAI7
+document.querySelector("#day17B7Id").addEventListener("click", () => {
+  arr.sort();
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+});
+
+// BAI8
+document.querySelector("#day17B8Id").addEventListener("click", () => {
+  for (let i = 0; i < arr.length; i++) {
+    if (isPrimeNumber(arr[i])) {
+      document.querySelector("#day17PopupId").classList.remove("d-none");
+      document.querySelector("#day17PopupId .day17__popup--result").innerHTML =
+        "";
+      document.querySelector(
+        "#day17PopupId .day17__popup--result"
+      ).innerHTML += `<p>[${arr}]</p>`;
+      document.querySelector(
+        "#day17PopupId .day17__popup--result"
+      ).innerHTML += `<p>FIRST PRIME NUMBER: ${arr[i]}</p>`;
+      return;
+    }
+  }
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>FIRST PRIME NUMBER: -1</p>`;
+});
+
+function isPrimeNumber(number) {
+  for (let i = 2; i <= parseInt(number / 2); i++) {
+    if (number % i === 0) return false;
+  }
+  return true;
+}
+
+// BAI9
+document.querySelector("#day17B9Id").addEventListener("click", () => {
+  document.querySelector("#arrayInputId").placeholder = "Nhâp số thực";
+  arr = [];
+  document.querySelector("#outputArea").innerText = arr;
+
+  const b9SubmitElement = document.createElement("button");
+  b9SubmitElement.classList.add("btn", "btn-dark");
+  b9SubmitElement.textContent = "Đếm số nguyên";
+  b9SubmitElement.id = "day17b9SubmitId";
+
+  const day17Content = document.querySelector("#day17-b1 .row .col-7");
+  if (!day17Content.contains(document.querySelector("#day17b9SubmitId"))) {
+    day17Content.insertBefore(
+      b9SubmitElement,
+      document.querySelector("#day17ButtonsId")
+    );
+  }
+
+  document.querySelector("#day17b9SubmitId").addEventListener("click", () => {
+    let count = 0;
+    arr.forEach((number) => {
+      if (number - parseInt(number) == 0) {
+        count++;
+        console.log(number);
+      }
+    });
+    document.querySelector("#outputArea").innerHTML += `<p>${count}</p>`;
+  });
+});
+
+// BAI10
+document.querySelector("#day17B10Id").addEventListener("click", () => {
+  let posCount = 0;
+  let negCount = 0;
+  let result = "<p>Equal</p>";
+  arr.forEach(function (number) {
+    if (number > 0) posCount++;
+    else if (number < 0) negCount++;
+  });
+  if (posCount > negCount) result = `<p>POSITIVE NUMBER</p>`;
+  else if (posCount < negCount) result = `<p>NEGATIVE NUMBER</p>`;
+
+  document.querySelector("#day17PopupId").classList.remove("d-none");
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML = "";
+  document.querySelector(
+    "#day17PopupId .day17__popup--result"
+  ).innerHTML += `<p>[${arr}]</p>`;
+  document.querySelector("#day17PopupId .day17__popup--result").innerHTML +=
+    result;
 });
